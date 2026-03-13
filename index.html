@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Evan Morrison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8F6F1;
+      --text: #1A1A18;
+      --muted: #8A8880;
+      --accent: #7A6652;
+      --accent-light: #C4AD96;
+      --border: #E0DBD3;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Karla', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(248,246,241,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+    }
+
+    .hero-left {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards 0.2s;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: #4A4A48;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-intro p + p { margin-top: 1rem; }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      padding-bottom: 3px;
+      transition: gap 0.25s, border-color 0.25s;
+    }
+
+    .hero-cta:hover { gap: 1rem; border-color: var(--accent); }
+
+    .hero-right {
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+
+    .hero-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      background: rgba(122,102,82,0.08);
+      border: 1px solid var(--accent-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 1px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .meta-key {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .meta-val {
+      font-size: 0.82rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--white);
+      padding: 2.2rem 2rem;
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .project-card:hover { background: #FEFDFB; }
+
+    .project-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: #5A5A58;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .stack-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 1px;
+    }
+
+    /* ── ABOUT / HOBBIES ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: #3A3A38;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .hobbies-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .hobby-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .hobby-item:first-child { border-top: 1px solid var(--border); }
+
+    .hobby-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── AWARDS ── */
+    .awards-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .awards-row:first-child { border-top: 1px solid var(--border); }
+
+    .award-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .award-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-school {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; min-height: auto; }
+      .hero-right { order: -1; }
+      section { padding: 4rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">[ Portfolio ]</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" style="border-top:none; padding-top:0; padding-bottom:0;">
+    <div class="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Computer Science · Westminster University</p></h1>
+        <h1 class="hero-name">Evan<br><em>Morrison</em></h1>
+        <div class="hero-intro">
+          <p>
+            Some people write code — I craft experiences. As a Computer Science student at Westminster University in Salt Lake City, I turn complex problems into clean, thoughtful solutions that actually matter to the people who use them.
+          </p>
+          <p>
+            From immersive VR landscapes to real-world algorithm visualizers, I bring together technical rigor and creative thinking to build software that is as elegant as it is functional. Explore my work below and see what's possible when curiosity meets execution.
+          </p>
+        </div>
+        <a href="#projects" class="hero-cta">Explore my work →</a>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <p class="hero-card-label">Core Competencies</p>
+          <div class="skills-grid">
+            <span class="skill-tag">Technical Skills</span>
+            <span class="skill-tag">Creativity</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Collaboration</span>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-row">
+              <span class="meta-key">Status</span>
+              <span class="meta-val">Junior · CS / Engineering</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-key">University</span>
+              <span class="meta-val">Westminster University</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-key">Location</span>
+              <span class="meta-val">Salt Lake City, UT</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-key">Honor</span>
+              <span class="meta-val">Dean's List 2024–2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header fade-in">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Selected Projects</h2>
+    </div>
+    <div class="projects-grid fade-in">
+
+      <div class="project-card">
+        <p class="project-tag">Virtual Reality · Immersive Tech</p>
+        <h3 class="project-title">VR Zion Explorer</h3>
+        <p class="project-desc">
+          An immersive virtual reality application that brings the stunning landscapes of Zion National Park to life. Users can explore canyon trails and sweeping vistas in a fully interactive 3D environment — bridging technology and the natural world.
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">VR Development</span>
+          <span class="stack-pill">3D Environments</span>
+          <span class="stack-pill">Interactive Design</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <p class="project-tag">Software Engineering · CMPT 322</p>
+        <h3 class="project-title">Math Adventure</h3>
+        <p class="project-desc">
+          A collaborative semester-long educational platform for elementary school students, built by team <em>404 Not Found</em>. Teachers manage classrooms and assign homework; students complete math mini-games and collect virtual rewards. Features full admin dashboards and detailed progress tracking.
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">Full-Stack</span>
+          <span class="stack-pill">Team Collaboration</span>
+          <span class="stack-pill">Agile</span>
+          <span class="stack-pill">Spring 2025</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <p class="project-tag">Algorithms · Data Structures</p>
+        <h3 class="project-title">CityRoute Visualizer</h3>
+        <p class="project-desc">
+          A Python project modeling major U.S. cities as a weighted graph to find optimal routes using Dijkstra's Algorithm and A* Search. Reads city and road data from CSV files and visualizes paths on an interactive map — making abstract algorithms tangible and intuitive.
+        </p>
+        <div class="project-stack">
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Graph Theory</span>
+          <span class="stack-pill">Dijkstra's</span>
+          <span class="stack-pill">A* Search</span>
+          <span class="stack-pill">Data Viz</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="section-header fade-in">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Awards &amp; Recognition</h2>
+    </div>
+    <div class="fade-in">
+      <div class="awards-row">
+        <div>
+          <p class="award-name">Dean's List</p>
+          <p style="font-size:0.85rem; color:var(--muted); margin-top:0.3rem;">Westminster University, Salt Lake City</p>
+        </div>
+        <div class="award-meta">Academic Excellence<br>2024 — 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header fade-in">
+      <span class="section-number">03</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>
+          I'm a junior Computer Science student at Westminster University with a deep curiosity for how technology can solve real problems and create meaningful experiences. Whether I'm writing algorithms, collaborating with a team, or exploring a new framework, I bring both precision and imagination to everything I build.
+        </p>
+        <p>
+          I believe the best software lives at the intersection of logic and creativity — and that the people using it should always come first. That philosophy drives my work, from user-centered educational tools to performance-optimized pathfinding engines.
+        </p>
+      </div>
+      <div>
+        <p style="font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem;">Beyond the Screen</p>
+        <div class="hobbies-list">
+          <div class="hobby-item"><span class="hobby-dot"></span> Skiing</div>
+          <div class="hobby-item"><span class="hobby-dot"></span> Mountain Biking</div>
+          <div class="hobby-item"><span class="hobby-dot"></span> Hiking</div>
+          <div class="hobby-item"><span class="hobby-dot"></span> Traveling</div>
+          <div class="hobby-item"><span class="hobby-dot"></span> Surfing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header fade-in">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Get In Touch</h2>
+    </div>
+    <div class="fade-in" style="max-width:520px;">
+      <p style="font-size:1.05rem; color:#4A4A48; line-height:1.8; margin-bottom:2rem;">
+        I'm always open to new opportunities, collaborations, and conversations. Whether you're a recruiter, a fellow developer, or just someone who loves clean code — let's connect.
+      </p>
+      <a href="mailto:your@email.com" class="hero-cta">your@email.com →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2025 · All rights reserved</span>
+    <span class="footer-school">Westminster University, Salt Lake City</span>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
