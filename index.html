@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio — CS Student</title>
+  <title>Portfolio - CS Student</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -253,7 +253,7 @@
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
 
@@ -265,6 +265,8 @@
       transition: transform 0.25s, box-shadow 0.25s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .card::before {
@@ -294,21 +296,64 @@
       font-family: 'Fraunces', serif;
       font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.4rem;
       color: var(--dark);
+    }
+
+    .card-subtitle {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+      font-weight: 500;
     }
 
     .card-desc {
       font-size: 0.85rem;
       color: var(--mid);
       line-height: 1.7;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-reflection {
+      background: var(--clay-light);
+      border-left: 3px solid var(--clay);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .card-reflection-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-reflection p {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-badges img {
+      height: 22px;
+      border-radius: 2px;
     }
 
     .card-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
+      margin-top: auto;
     }
 
     .ctag {
@@ -465,6 +510,7 @@
       .hero-right { padding: 2.5rem 2rem; flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
       #projects, #about { padding: 4rem 2rem; }
       .section-intro, .cards-grid { grid-template-columns: 1fr; }
+      .card-badges img { height: 20px; }
       #about { grid-template-columns: 1fr; }
       #contact { flex-direction: column; padding: 4rem 2rem; }
       footer { padding: 1.5rem 2rem; flex-direction: column; gap: 0.5rem; }
@@ -480,6 +526,8 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/evan-morrison-1a5819369" target="_blank">LinkedIn</a></li>
+      <li><a href="Evan_Morrison_Resume.pdf" target="_blank">Resume</a></li>
     </ul>
   </nav>
 
@@ -492,13 +540,25 @@
         <span class="line2">Morrison</span>
       </h1>
       <div class="hero-bio">
-        <p>I'm a Computer Science student at Westminster University who builds software worth using. Clean code, creative problem solving, and a genuine interest in how technology shapes experiences — that's what I bring to every project.</p>
-        <p>My work spans VR development, full-stack platforms, and algorithm design. Outside of class I'm drawn to game development and UI/UX design — where technical skill and creativity overlap in the best way.</p>
+        <p>I'm a Computer Science student at Westminster University who builds software worth using. Clean code, creative problem solving, and a genuine interest in how technology shapes experiences, that's what I bring to every project.</p>
+        <p>My work spans VR development, full-stack platforms, and algorithm design. Outside of class I'm drawn to game development and UI/UX design where technical skill and creativity overlap in the best way.</p>
         <p>I collaborate well, think beyond the requirements, and care about the details because good software always shows it. If that sounds like someone you want on your team, you're in the right place. Explore my work below.</p>
       </div>
       <div class="cta-group">
         <a href="#projects" class="cta-fill">View My Work</a>
         <a href="#contact" class="cta-outline">Say Hello</a>
+        <a href="https://www.linkedin.com/in/evan-morrison-1a5819369" target="_blank" class="cta-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn ↗
+        </a>
+        <a href="Evan_Morrison_Resume.pdf" target="_blank" class="cta-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 384 512" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;">
+            <path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM112 256h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64h160c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/>
+          </svg>
+          Resume ↗
+        </a>
       </div>
     </div>
 
@@ -532,43 +592,116 @@
         <p class="section-kicker">Selected Work</p>
         <h2 class="section-heading">Projects I'm<br>Proud Of</h2>
       </div>
-      <p class="section-subtext">A range of work spanning virtual reality, educational platforms, and algorithm visualization — each project a different problem, the same commitment to doing it right.</p>
+      <p class="section-subtext">A range of work spanning virtual reality, educational platforms, and algorithm visualization - each project a different problem, the same commitment to doing it right.</p>
     </div>
 
     <div class="cards-grid fade-in">
+
+      <!-- 01 VR Zion Explorer -->
       <div class="card">
         <div class="card-num">01</div>
         <h3 class="card-title">VR Zion Explorer</h3>
-        <p class="card-desc">An immersive VR application letting users explore Zion National Park's stunning canyon trails and sweeping landscapes in full 3D. Features an AI park ranger that answers questions and brings the experience to life.</p>
+        <p class="card-subtitle">CMPT 390 · Senior Capstone · Spring 2026 · Individual Project</p>
+        <p class="card-desc">An immersive VR application letting users explore Zion National Park's stunning canyon trails and sweeping landscapes in full 3D. Features an AI-powered park ranger that answers questions about plants, wildlife, and terrain through real-time dialogue powered by the OpenAI API.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/Unity-000?logo=unity&logoColor=white" alt="Unity">
+          <img src="https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white" alt="C#">
+          <img src="https://custom-icon-badges.demolab.com/badge/OpenAI-74aa9c?logo=openai&logoColor=white" alt="OpenAI">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>This capstone pushed me to combine multiple disciplines such as 3D environment design, API integration, and user interaction into a single cohesive experience. Building an AI-driven NPC taught me how to handle real-time API responses within a game loop and design conversational triggers that feel natural. It also deepened my appreciation for how VR can make educational content genuinely engaging rather than passive.</p>
+        </div>
         <div class="card-tags">
           <span class="ctag">VR Development</span>
+          <span class="ctag">AI Integration</span>
           <span class="ctag">Interactive</span>
-          <span class="ctag">Unity</span>
-          <span class="ctag">C#</span>
         </div>
       </div>
 
+      <!-- 02 Math Adventure -->
       <div class="card">
         <div class="card-num">02</div>
         <h3 class="card-title">Math Adventure</h3>
-        <p class="card-desc">Collaborative full-stack educational platform for elementary schools. Built with team 404 Not Found — teachers manage classrooms, students complete learning games and earn rewards.</p>
+        <p class="card-subtitle">CMPT 322 · Software Engineering · Spring 2025 · Team: 404 Not Found</p>
+        <p class="card-desc">Collaborative full-stack educational platform for elementary schools. Teachers create classes, add students, and assign math homework. Students play adaptive mini-games, earn virtual rewards, and track their progress. Server-side analytics give teachers real-time visibility into student performance.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000" alt="React">
+          <img src="https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&logoColor=white" alt="Node.js">
+          <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>This project taught me how to work effectively in a team using GitHub and weekly stand-ups. I learned to build both the frontend and backend of an application and connect them into a working system. Designing games that are fun and educational at the same time pushed my creativity, and presenting our progress each sprint improved my communication skills. It reinforced my belief that technology can make learning more accessible and enjoyable.</p>
+        </div>
         <div class="card-tags">
           <span class="ctag">Full-Stack</span>
           <span class="ctag">Agile / Team</span>
-          <span class="ctag">React</span>
-          <span class="ctag">CMPT 322</span>
+          <span class="ctag">EdTech</span>
         </div>
       </div>
 
+      <!-- 03 Utah Independent Living Center -->
       <div class="card">
         <div class="card-num">03</div>
+        <h3 class="card-title">Utah Independent Living Center</h3>
+        <p class="card-subtitle">CMPT 375 · Web Applications · Spring 2026 · Team Project</p>
+        <p class="card-desc">Building a website for a nonprofit organization using Next.js, React, TypeScript, and Tailwind CSS. Developing shared accessible components and page sections with a focus on usability, following professional Git workflows and code review practices.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white" alt="Next.js">
+          <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000" alt="React">
+          <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+          <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>Working on a real-world nonprofit website introduced me to accessibility-first design thinking and the responsibility that comes with building for underserved communities. Collaborating through pull requests and code reviews mirrored a professional development workflow and raised the quality of everyone's code. This project reinforced that the best software is built with its users and not just its developers in mind.</p>
+        </div>
+        <div class="card-tags">
+          <span class="ctag">Web Dev</span>
+          <span class="ctag">Accessibility</span>
+          <span class="ctag">Nonprofit</span>
+        </div>
+      </div>
+
+      <!-- 04 In-Game Inventory System -->
+      <div class="card">
+        <div class="card-num">04</div>
+        <h3 class="card-title">In-Game Inventory System</h3>
+        <p class="card-subtitle">CMPT 307 · Databases · Individual Project</p>
+        <p class="card-desc">A database-driven inventory management system inspired by games like Elden Ring. Players can add, remove, and organize items such as weapons, potions, and armor. Uses SQL commands for CRUD operations, GROUP BY and COUNT for summaries, and subqueries to find rare items or the largest inventories.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white" alt="MariaDB">
+          <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white" alt="Java">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>This project helped me understand how databases work in a practical context - connecting a Java application to MariaDB, organizing data into normalized tables, and using foreign keys to maintain relationships. Turning a game concept into a working relational database pushed my creativity, and writing complex SQL queries strengthened my critical thinking. Presenting the design and results improved my ability to communicate technical decisions clearly.</p>
+        </div>
+        <div class="card-tags">
+          <span class="ctag">SQL</span>
+          <span class="ctag">Database Design</span>
+          <span class="ctag">Java</span>
+        </div>
+      </div>
+      
+      <!-- 05 CityRoute Visualizer -->
+      <div class="card">
+        <div class="card-num">05</div>
         <h3 class="card-title">CityRoute Visualizer</h3>
-        <p class="card-desc">Python project modeling U.S. cities as a weighted graph to find shortest paths using Dijkstra's and A* algorithms. Renders results on an interactive map with CSV data.</p>
+        <p class="card-subtitle">CMPT 306 · Algorithms · Individual Project</p>
+        <p class="card-desc">Python project modeling U.S. cities as a weighted graph to find shortest paths using Dijkstra's and A* algorithms. Parses CSV data, builds the graph programmatically, and renders results on an interactive map visualization.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>Implementing Dijkstra's and A* from scratch gave me a much stronger grasp of graph theory and algorithm efficiency than any textbook could. Translating abstract data structures into a visual, interactive map made the results tangible and helped me understand how data visualization can turn raw output into something immediately meaningful. This project sharpened both my problem-solving skills and my ability to present technical work clearly.</p>
+        </div>
         <div class="card-tags">
           <span class="ctag">Python</span>
-          <span class="ctag">Dijkstra's / A* Search</span>
-          <span class="ctag">Data Viz</span>
-          <span class="ctag">CMPT 306</span>
+          <span class="ctag">Dijkstra's / A*</span>
+          <span class="ctag">Data Visualization</span>
         </div>
       </div>
     </div>
@@ -580,7 +713,7 @@
       <p class="section-kicker">About Me</p>
       <h2 class="section-heading">More Than<br>Just Code</h2>
       <p>I'm a junior Computer Science student at Westminster University with a deep curiosity for how technology can solve real problems and create meaningful experiences. Whether writing algorithms, collaborating with a team, or exploring a new framework, I bring both precision and imagination to everything I build.</p>
-      <p>I believe the best software lives at the intersection of logic and creativity — and that the people using it should always come first. That philosophy drives my work from user-centered educational tools to performance-optimized pathfinding engines.</p>
+      <p>I believe the best software lives at the intersection of logic and creativity - and that the people using it should always come first. That philosophy drives my work from user-centered educational tools to performance-optimized pathfinding engines.</p>
       <p>Outside the terminal, you'll find me skiing Utah's slopes, biking mountain trails, hiking the backcountry, or or sleeping under desert skies. The same drive that takes me up a mountain fuels everything I build.</p>
     </div>
 
@@ -614,13 +747,13 @@
       <h2 class="section-heading">Let's Build<br>Something.</h2>
     </div>
     <div class="contact-right">
-      <p>Open to internships, collaborations, and conversations. Whether you're a recruiter, a fellow developer, or just someone who appreciates clean code — reach out.</p>
+      <p>Open to internships, collaborations, and conversations. Whether you're a recruiter, a fellow developer, or just someone who appreciates clean code - reach out.</p>
       <a href="mailto:emorrison210@gmail.com" class="contact-btn">emorrison210@gmail.com →</a>
     </div>
   </section>
 
   <footer>
-    <span>© 2025 · All rights reserved</span>
+    <span>© 2026 · All rights reserved</span>
     <span>Westminster University, Salt Lake City</span>
   </footer>
 
