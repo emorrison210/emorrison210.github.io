@@ -1,6 +1,3 @@
-
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -567,7 +564,7 @@ Index · HTML
       <div class="hero-bio">
         <p>I'm a Computer Science student at Westminster University, graduating this fall. I'm going into cybersecurity and IT.</p>
         <p>Right now I'm interning at a public water utility. I set up and secure servers, provision laptops and desktops for staff, configure VPN access, and work support tickets. Most of what I know about security I picked up there, on systems people actually depend on.</p>
-        <p>I have my CompTIA A+ and I'm studying for Security+ and Network+. My projects are below.</p>
+        <p>I have my CompTIA A+ and Network+ certifications. I'm studying for Security+ now. My projects are below.</p>
       </div>
       <div class="cta-group">
         <a href="#projects" class="cta-fill">View My Work</a>
@@ -606,8 +603,9 @@ Index · HTML
       <div class="divider"></div>
       <div class="info-block">
         <p class="info-label">Certifications</p>
-        <p class="info-value">CompTIA A+</p>
-        <span class="badge">🔐 Security+ &amp; Network+ in progress</span>
+        <p class="info-value">A+</p>
+        <p class="info-value">Network+</p>
+        <span class="badge">🔐 Security+ in progress</span>
       </div>
       <div class="divider"></div>
       <div class="info-block">
@@ -652,9 +650,32 @@ Index · HTML
         </div>
       </div>
  
-      <!-- 02 VR Zion Explorer -->
+      <!-- 02 Proxmox Security Homelab -->
       <div class="card">
         <div class="card-num">02</div>
+        <h3 class="card-title">Proxmox Security Homelab</h3>
+        <p class="card-subtitle">Personal Project · Fall 2026 – Present · Networking &amp; Security</p>
+        <p class="card-desc">I turned a mini PC into a hands-on lab for practicing networking and security. It runs Proxmox with an OPNsense firewall and lightweight containers for AdGuard Home (network-wide DNS filtering) and Uptime Kuma (monitoring). Practice machines go on a separate lab network that only exists inside Proxmox, behind the firewall. I wrote a rule that blocks that network from reaching my home LAN and tested it before putting anything vulnerable on it. I manage everything remotely through Tailscale, so no ports are open on my home router.</p>
+        <div class="card-badges">
+          <img src="https://img.shields.io/badge/Proxmox-E57000?logo=proxmox&logoColor=white" alt="Proxmox">
+          <img src="https://img.shields.io/badge/OPNsense-D94F00?logo=opnsense&logoColor=white" alt="OPNsense">
+          <img src="https://img.shields.io/badge/AdGuard-68BC71?logo=adguard&logoColor=white" alt="AdGuard">
+          <img src="https://img.shields.io/badge/Tailscale-242424?logo=tailscale&logoColor=white" alt="Tailscale">
+        </div>
+        <div class="card-reflection">
+          <p class="card-reflection-label">Reflection</p>
+          <p>The things that broke taught me the most. My first OPNsense install had its interfaces backwards, so the firewall tried to take my router's IP and hand out addresses on my home network. Tailscale's DNS quietly broke name lookups for my containers. Each fix meant working out which layer was actually wrong. I write up every build, including what broke and how I fixed it.</p>
+        </div>
+        <div class="card-tags">
+          <span class="ctag">Network Segmentation</span>
+          <span class="ctag">Firewalls</span>
+          <span class="ctag">Virtualization</span>
+        </div>
+      </div>
+ 
+      <!-- 03 VR Zion Explorer -->
+      <div class="card">
+        <div class="card-num">03</div>
         <h3 class="card-title">VR Zion Explorer</h3>
         <p class="card-subtitle">CMPT 390 · Senior Capstone · Spring 2026 · Individual Project</p>
         <p class="card-desc">An immersive VR application letting users explore Zion National Park's stunning canyon trails and sweeping landscapes in full 3D. Features an AI-powered park ranger that answers questions about plants, wildlife, and terrain through real-time dialogue powered by the OpenAI API.</p>
@@ -675,9 +696,9 @@ Index · HTML
         </div>
       </div>
  
-      <!-- 03 Orlando Theme Park Wait Times -->
+      <!-- 04 Orlando Theme Park Wait Times -->
       <div class="card">
-        <div class="card-num">03</div>
+        <div class="card-num">04</div>
         <h3 class="card-title">Orlando Theme Park Wait Times</h3>
         <p class="card-subtitle">DATA 220 · Modern statistics · Spring 2026 · Individual Project</p>
         <p class="card-desc">Analyzed ~10,900 ride wait-time observations across four Orlando theme parks using data collected every 30 minutes from the Queue-Times.com API. Used ANOVA, regression modeling, and trend analysis to explore how time of day, park, weather, and novelty effects drive wait times. Built a reproducible Quarto notebook and digital poster presenting the findings.</p>
@@ -699,9 +720,9 @@ Index · HTML
         </div>
       </div>
  
-      <!-- 04 Math Adventure -->
+      <!-- 05 Math Adventure -->
       <div class="card">
-        <div class="card-num">04</div>
+        <div class="card-num">05</div>
         <h3 class="card-title">Math Adventure</h3>
         <p class="card-subtitle">CMPT 322 · Software Engineering · Spring 2025 · Team: 404 Not Found</p>
         <p class="card-desc">Collaborative full-stack educational platform for elementary schools. Teachers create classes, add students, and assign math homework. Students play adaptive mini-games, earn virtual rewards, and track their progress. Server-side analytics give teachers real-time visibility into student performance.</p>
@@ -722,9 +743,9 @@ Index · HTML
         </div>
       </div>
  
-      <!-- 05 Utah Independent Living Center -->
+      <!-- 06 Utah Independent Living Center -->
       <div class="card">
-        <div class="card-num">05</div>
+        <div class="card-num">06</div>
         <h3 class="card-title">Utah Independent Living Center</h3>
         <p class="card-subtitle">CMPT 375 · Web Applications · Spring 2026 · Team Project</p>
         <p class="card-desc">Building a website for a nonprofit organization using Next.js, React, TypeScript, and Tailwind CSS. Developing shared accessible components and page sections with a focus on usability, following professional Git workflows and code review practices.</p>
@@ -745,27 +766,6 @@ Index · HTML
           <span class="ctag">Nonprofit</span>
         </div>
       </div>
- 
-      <!-- 06 In-Game Inventory System -->
-      <div class="card">
-        <div class="card-num">06</div>
-        <h3 class="card-title">In-Game Inventory System</h3>
-        <p class="card-subtitle">CMPT 307 · Databases · Individual Project</p>
-        <p class="card-desc">A database-driven inventory management system inspired by games like Elden Ring. Players can add, remove, and organize items such as weapons, potions, and armor. Uses SQL commands for CRUD operations, GROUP BY and COUNT for summaries, and subqueries to find rare items or the largest inventories.</p>
-        <div class="card-badges">
-          <img src="https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white" alt="MariaDB">
-          <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white" alt="Java">
-        </div>
-        <div class="card-reflection">
-          <p class="card-reflection-label">Reflection</p>
-          <p>Wiring a Java app up to MariaDB and keeping the tables normalized was the useful part. Writing the subqueries to pull rare items or find the biggest inventories is where SQL finally clicked for me as something more than a way to fetch rows.</p>
-        </div>
-        <div class="card-tags">
-          <span class="ctag">SQL</span>
-          <span class="ctag">Database Design</span>
-          <span class="ctag">Java</span>
-        </div>
-      </div>
     </div>
   </section>
  
@@ -781,9 +781,9 @@ Index · HTML
  
     <div class="side-panel fade-in">
       <div class="award-card">
-        <p class="award-card-label">Certification</p>
-        <p class="award-card-title">CompTIA A+</p>
-        <p class="award-card-sub">Security+ &amp; Network+ in progress</p>
+        <p class="award-card-label">Certifications</p>
+        <p class="award-card-title">CompTIA A+ and Network+</p>
+        <p class="award-card-sub">Security+ (SY0-801) in progress</p>
       </div>
  
       <div class="award-card">
@@ -834,5 +834,3 @@ Index · HTML
  
 </body>
 </html>
-
-
